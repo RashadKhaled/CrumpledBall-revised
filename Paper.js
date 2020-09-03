@@ -10,10 +10,16 @@ class Paper{
     this.body=Bodies.circle(x,y,radius,options) 
     World.add(world,this.body) 
     this.radius=radius
+    this.image=loadImage("paper.png")
     }
 display(){
+    push();
     fill("purple")
-    ellipseMode(RADIUS)
-    ellipse(this.body.position.x,this.body.position.y,this.radius,this.radius)
+    ellipseMode(CENTER)
+    
+    translate(this.body.position.x,this.body.position.y)
+    rotate(this.body.rotate)
+    image(this.image,0,0,this.radius,this.radius)
+    pop();
 }
     };
